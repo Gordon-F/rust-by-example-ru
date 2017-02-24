@@ -69,7 +69,7 @@ function initEditor() {
     runProgram(program, handleResult);
   };
 
-  ace.config.setModuleUrl('ace/mode/rust', '/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js');
+  ace.config.setModuleUrl('ace/mode/rust', '/mode-rust.js');
 
   editor.setTheme("ace/theme/tomorrow");
   editor.getSession().setMode("ace/mode/rust");
