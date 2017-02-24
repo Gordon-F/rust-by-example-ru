@@ -31,7 +31,6 @@ all:
 html: node_modules/gitbook
 	$(GITBOOK) build stage
 	./fix-edit-button.sh
-	./add-relinks.sh
 
 epub:	node_modules/gitbook
 	$(GITBOOK) epub stage
