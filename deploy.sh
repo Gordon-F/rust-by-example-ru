@@ -10,7 +10,7 @@ git config user.email "shaposhnikigor95@bk.ru"
 git remote add upstream "https://$RBE_TEST@github.com/Gordon-F/rust-by-example-ru.git"
 git fetch upstream && git reset upstream/gh-pages
 
-#echo "rustbyexample.com" > CNAME
+echo "rurust.github.io/rust-by-example-ru" > CNAME
 cp -r ../../vendor/gitbook/* gitbook/
 
 #fix editor syntax highlight
