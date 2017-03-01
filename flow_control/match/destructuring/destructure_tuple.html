@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>tuples | Rust на примерах</title>
+        <title>Кортежи | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="7.5.1.1" data-basepath="../../.." data-revision="1488342970091">
+    <div class="book" data-level="7.5.1.1" data-basepath="../../.." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2870,29 +2870,29 @@
                 
                     <section class="normal" id="section-gitbook_51">
                     
-                        <h4 id="7511-tuples">7.5.1.1 tuples</h4>
-<p>Tuples can be destructured in a <code>match</code> as follows:</p>
+                        <h4 id="7511-">7.5.1.1 Кортежи</h4>
+<p>Кортежи можно деструктурировать с помощью <code>match</code> следующим образом:</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor"><pre>fn main() {
     let pair = (0, -2);
-    // ЗАДАНИЕ ^ Try different values for &#96;pair&#96;
+    // ЗАДАНИЕ ^ Попробуйте другие значения для &#96;pair&#96;
 
     println!(&quot;Tell me about {:?}&quot;, pair);
-    // Match can be used to destructure a tuple
+    // Match можно использовать для деструктуризации кортежей
     match pair {
-        // Destructure the second
-        (0, y) =&gt; println!(&quot;First is &#96;0&#96; and &#96;y&#96; is &#96;{:?}&#96;&quot;, y),
-        (x, 0) =&gt; println!(&quot;&#96;x&#96; is &#96;{:?}&#96; and last is &#96;0&#96;&quot;, x),
-        &#95;      =&gt; println!(&quot;It doesn&#39;t matter what they are&quot;),
-        // &#96;&#95;&#96; means don&#39;t bind the value to a variable
+        // Деструктурируем два значения
+        (0, y) =&gt; println!(&quot;Первое значение &#96;0&#96;, а &#96;y&#96; равно &#96;{:?}&#96;&quot;, y),
+        (x, 0) =&gt; println!(&quot;&#96;x&#96; равно &#96;{:?}&#96;, а второе значение &#96;0&#96;&quot;, x),
+        &#95;      =&gt; println!(&quot;Неважно, какого они значения&quot;),
+         // &#96;&#95;&#96; означает, что значение не будет связано с переменной
     }
 }</pre></div>
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
+<h3 id="-">Смотрите также:</h3>
 <p><a href="/primitives/tuples.html">Tuples</a></p>
 
                     
@@ -2904,7 +2904,7 @@
         </div>
 
         
-        <a href="../../../flow_control/match/destructuring.html" class="navigation navigation-prev " aria-label="Previous page: Destructuring"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../flow_control/match/destructuring.html" class="navigation navigation-prev " aria-label="Previous page: Деструктуризация"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../../../flow_control/match/destructuring/destructure_enum.html" class="navigation navigation-next " aria-label="Next page: enums"><i class="fa fa-angle-right"></i></a>

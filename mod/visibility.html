@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Visibility | Rust на примерах</title>
+        <title>Видимость | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="9.1" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="9.1" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2870,81 +2870,81 @@
                 
                     <section class="normal" id="section-gitbook_96">
                     
-                        <h2 id="91-visibility">9.1 Visibility</h2>
-<p>By default, the items in a module have private visibility, but this can be
-overridden with the <code>pub</code> modifier. Only the public items of a module can be
-accessed from outside the module scope.</p>
+                        <h2 id="91-">9.1 Видимость</h2>
+<p>По умолчанию, элементы модуля являются приватными, 
+но это можно изменить добавив модификатор <code>pub</code>. 
+Только публичные элементы модуля могут быть доступны за пределами его области видимости.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
-<div id="editor"><pre>// A module named &#96;my&#96;
+<div id="editor"><pre>// Модуль по имени &#96;my&#96;
 mod my {
-    // Items in modules default to private visibility.
+    // Все элементы модуля по умолчанию являются приватными.
     fn private&#95;function() {
-        println!(&quot;called &#96;my::private&#95;function()&#96;&quot;);
+        println!(&quot;вызвана &#96;my::private&#95;function()&#96;&quot;);
     }
 
-    // Use the &#96;pub&#96; modifier to override default visibility.
+    // Используем модификатор &#96;pub&#96;, чтобы сделать элемент публичным.
     pub fn function() {
-        println!(&quot;called &#96;my::function()&#96;&quot;);
+        println!(&quot;вызвана &#96;my::function()&#96;&quot;);
     }
 
-    // Items can access other items in the same module,
-    // even when private.
+    // Приватные элементы модуля доступны другим элементам
+    // данного модуля.
     pub fn indirect&#95;access() {
-        print!(&quot;called &#96;my::indirect&#95;access()&#96;, that&#92;n&gt; &quot;);
+        print!(&quot;вызвана &#96;my::indirect&#95;access()&#96;, that&#92;n&gt; &quot;);
         private&#95;function();
     }
 
-    // Modules can also be nested
+    // Модули так же могут быть вложенными
     pub mod nested {
         pub fn function() {
-            println!(&quot;called &#96;my::nested::function()&#96;&quot;);
+            println!(&quot;вызвана &#96;my::nested::function()&#96;&quot;);
         }
 
         #[allow(dead&#95;code)]
         fn private&#95;function() {
-            println!(&quot;called &#96;my::nested::private&#95;function()&#96;&quot;);
+            println!(&quot;вызвана &#96;my::nested::private&#95;function()&#96;&quot;);
         }
     }
 
-    // Nested modules follow the same rules for visibility
+    // Вложенные модули подчиняются тем же правилам видимости
     mod private&#95;nested {
         #[allow(dead&#95;code)]
         pub fn function() {
-            println!(&quot;called &#96;my::private&#95;nested::function()&#96;&quot;);
+            println!(&quot;вызвана &#96;my::private&#95;nested::function()&#96;&quot;);
         }
     }
 }
 
 fn function() {
-    println!(&quot;called &#96;function()&#96;&quot;);
+    println!(&quot;вызвана &#96;function()&#96;&quot;);
 }
 
 fn main() {
-    // Modules allow disambiguation between items that have the same name.
+    // Модули позволяют устранить противоречия между элементами, которые имеют одинаковые названия.
     function();
     my::function();
 
-    // Public items, including those inside nested modules, can be
-    // accessed from outside the parent module.
+    // Публичные элементы, включая те, что находятся во вложенном модуле, 
+    // доступны извне родительского модуля
     my::indirect&#95;access();
     my::nested::function();
 
-    // Private items of a module cannot be directly accessed, even if
-    // nested in a public module:
+    // Приватные элементы модуля не доступны напрямую,
+    // даже если вложенный модуль является публичным:
 
-    // Error! &#96;private&#95;function&#96; is private
+    // Ошибка! функция &#96;private&#95;function&#96; приватная
     //my::private&#95;function();
-    // ЗАДАНИЕ ^ Try uncommenting this line
+    // ЗАДАНИЕ ^ Попробуйте раскомментировать эту строку
 
-    // Error! &#96;private&#95;function&#96; is private
+    // Ошибка! функция &#96;private&#95;function&#96; приватная
     //my::nested::private&#95;function();
-    // ЗАДАНИЕ ^ Try uncommenting this line
+    // ЗАДАНИЕ ^ Попробуйте раскомментировать эту строку
 
-    // Error! &#96;private&#95;nested&#96; is a private module
+    // Ошибка! Модуль &#96;private&#95;nested&#96; является приватным
     //my::private&#95;nested::function();
-    // ЗАДАНИЕ ^ Try uncommenting this line
+    // ЗАДАНИЕ ^ Попробуйте раскомментировать эту строку
 }</pre></div>
 <div id="result"></div>
 </div>
@@ -2958,7 +2958,7 @@ fn main() {
         </div>
 
         
-        <a href="../mod.html" class="navigation navigation-prev " aria-label="Previous page: Modules"><i class="fa fa-angle-left"></i></a>
+        <a href="../mod.html" class="navigation navigation-prev " aria-label="Previous page: Модули"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../mod/struct_visibility.html" class="navigation navigation-next " aria-label="Next page: Struct visibility"><i class="fa fa-angle-right"></i></a>

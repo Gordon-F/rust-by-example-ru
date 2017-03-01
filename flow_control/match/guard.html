@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Guards | Rust на примерах</title>
+        <title>Ограничитель шаблонов | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="7.5.2" data-basepath="../.." data-revision="1488342970091">
+    <div class="book" data-level="7.5.2" data-basepath="../.." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2868,30 +2868,31 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_53">
+                    <section class="normal" id="section-gitbook_54">
                     
-                        <h3 id="752-guards">7.5.2 Guards</h3>
-<p>A <code>match</code> <em>guard</em> can be added to filter the arm.</p>
+                        <h3 id="752--">7.5.2 Ограничитель шаблонов</h3>
+<p>Внутри конструкции <code>match</code> можно добавить <em>ограничитель шаблонов</em>
+для фильтрации возможных вариантов.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor"><pre>fn main() {
     let pair = (2, -2);
-    // ЗАДАНИЕ ^ Try different values for &#96;pair&#96;
+    // ЗАДАНИЕ ^ Попробуйте разные значения &#96;pair&#96;
 
-    println!(&quot;Tell me about {:?}&quot;, pair);
+    println!(&quot;Расскажи мне о {:?}&quot;, pair);
     match pair {
-        (x, y) if x == y =&gt; println!(&quot;These are twins&quot;),
-        // The ^ &#96;if condition&#96; part is a guard
-        (x, y) if x + y == 0 =&gt; println!(&quot;Antimatter, kaboom!&quot;),
-        (x, &#95;) if x % 2 == 1 =&gt; println!(&quot;The first one is odd&quot;),
-        &#95; =&gt; println!(&quot;No correlation...&quot;),
+        (x, y) if x == y =&gt; println!(&quot;Близнецы&quot;),
+        // Данное ^ &#96;условие if&#96; является ограничителем шаблонов
+        (x, y) if x + y == 0 =&gt; println!(&quot;Антиматерия, бабах!&quot;),
+        (x, &#95;) if x % 2 == 1 =&gt; println!(&quot;Первое число чётно&quot;),
+        &#95; =&gt; println!(&quot;Нет корреляции...&quot;),
     }
 }</pre></div>
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
+<h3 id="-">Смотрите также:</h3>
 <p><a href="/primitives/tuples.html">Tuples</a></p>
 
                     

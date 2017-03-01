@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="10.2" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="10.2" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2871,29 +2871,29 @@
                     <section class="normal" id="section-gitbook_18">
                     
                         <h2 id="102-extern-crate">10.2 <code>extern crate</code></h2>
-<p>To link a crate to this new library, the <code>extern crate</code> declaration must be
-used. This will not only link the library, but also import all its items under
-a module named the same as the library. The visibility rules that apply to
-modules also apply to libraries.</p>
+<p>Чтобы связать контейнер с новой библиотекой, нужна декларация <code>extern crate</code>. 
+Она не только свяжет библиотеку, но и импортирует все элементы в модуль 
+с тем же именем, что и сама библиотека. 
+Правила видимости, применимые к модулям, так же применимы и к библиотекам.</p>
 <pre><code class="lang-rust"><span class="hljs-comment">// executable.rs</span>
-<span class="hljs-comment">// Link to `library`, import items under the `rary` module</span>
+<span class="hljs-comment">// Ссылка на `библиотеку`. Импортируем элементы, как модуль `rary`</span>
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">crate</span> rary;
 
 <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
     rary::public_function();
 
-    <span class="hljs-comment">// Error! `private_function` is private</span>
+    <span class="hljs-comment">// Ошибка! Функция `private_function` приватная</span>
     <span class="hljs-comment">//rary::private_function();</span>
 
     rary::indirect_access();
 }
 </code></pre>
-<pre><code># Where library.rlib is the path to to the compiled library, assumed that it&#39;s
-# in the same directory here:
+<pre><code># Где library.rlib путь к скомпилированной библиотеки. Предположим, что
+# она находится в той же директории:
 $ rustc executable.rs --extern rary=library.rlib &amp;&amp; ./executable
-called rary&#39;s `public_function()`
-called rary&#39;s `indirect_access()`, that
-&gt; called rary&#39;s `private_function()`
+вызвана `public_function()` контейнера rary
+вызвана `indirect_access()` контейнера rary, которая
+&gt; вызывает `private_function()` контейнера rary
 </code></pre>
                     
                     </section>
@@ -2904,7 +2904,7 @@ called rary&#39;s `indirect_access()`, that
         </div>
 
         
-        <a href="../crates/lib.html" class="navigation navigation-prev " aria-label="Previous page: Library"><i class="fa fa-angle-left"></i></a>
+        <a href="../crates/lib.html" class="navigation navigation-prev " aria-label="Previous page: Библиотеки"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../attribute.html" class="navigation navigation-next " aria-label="Next page: Атрибуты"><i class="fa fa-angle-right"></i></a>

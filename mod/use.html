@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>The `use` declaration | Rust на примерах</title>
+        <title>Декларация `use` | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="9.3" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="9.3" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2870,40 +2870,40 @@
                 
                     <section class="normal" id="section-gitbook_95">
                     
-                        <h2 id="93-the-use-declaration">9.3 The <code>use</code> declaration</h2>
-<p>The <code>use</code> declaration can be used to bind a full path to a new name, for easier
-access.</p>
+                        <h2 id="93--use">9.3 Декларация <code>use</code></h2>
+<p>Декларация <code>use</code> используется, чтобы связать полный путь с новым именем, 
+что упрощает доступ.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
-<div id="editor"><pre>// Bind the &#96;deeply::nested::function&#96; path to &#96;other&#95;function&#96;.
+<div id="editor"><pre>// Привязать путь &#96;deeply::nested::function&#96; к &#96;other&#95;function&#96;.
 use deeply::nested::function as other&#95;function;
 
 fn function() {
-    println!(&quot;called &#96;function()&#96;&quot;);
+    println!(&quot;вызвана &#96;function()&#96;&quot;);
 }
 
 mod deeply {
     pub mod nested {
         pub fn function() {
-            println!(&quot;called &#96;deeply::nested::function()&#96;&quot;)
+            println!(&quot;вызвана &#96;deeply::nested::function()&#96;&quot;)
         }
     }
 }
 
 fn main() {
-    // Easier access to &#96;deeply::nested::function&#96;
+    // Упрощённый доступ к &#96;deeply::nested::function&#96;
     other&#95;function();
 
     println!(&quot;Entering block&quot;);
     {
-        // This is equivalent to &#96;use deeply::nested::function as function&#96;.
-        // This &#96;function()&#96; will shadow the outer one.
+        // Эквивалентно &#96;use deeply::nested::function as function&#96;.
+        // &#96;function()&#96; затенение собой внешнюю функцию.
         use deeply::nested::function;
         function();
 
-        // &#96;use&#96; bindings have a local scope. In this case, the
-        // shadowing of &#96;function()&#96; is only in this block.
+        // у привязок &#96;use&#96; локальная область видимости. В данном случае
+        // внешняя &#96;function()&#96; затенена только в этом блоке.
         println!(&quot;Leaving block&quot;);
     }
 

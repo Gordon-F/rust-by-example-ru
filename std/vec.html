@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Vectors | Rust на примерах</title>
+        <title>Вектора | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="17.2" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="17.2" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2868,53 +2868,55 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_126">
+                    <section class="normal" id="section-gitbook_128">
                     
-                        <h2 id="172-vectors">17.2 Vectors</h2>
-<p>Vectors are re-sizable arrays. Like slices, their size is not known at compile
-time, but they can grow or shrink at any time. A vector is represented using
-3 words: a pointer to the data, its length, and its capacity. The capacity
-indicates how much memory is reserved for the vector. The vector can grow as
-long as the length is smaller than the capacity. When this threshold needs to
-be surpassed, the vector is reallocated with a larger capacity.</p>
+                        <h2 id="172-">17.2 Вектора</h2>
+<p>Вектора — это массивы с изменяемым размером. Как и у срезов, их размер не
+известен при компиляции, но он может увеличиваться и уменьшаться в любое время.
+Вектор определяется тремя словами: указатель на данные, длина вектора и
+его ёмкость. Ёмкость определяет, сколько памяти резервируется для вектора.
+Вектор может увеличиваться, пока его длина меньше его ёмкости. При необходимости
+превысить заданное значение объёма, вектору повторно выделяется память большего
+объёма.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
 <div id="editor"><pre>fn main() {
-    // Iterators can be collected into vectors
+    // Итераторы можно собрать в вектора
     let collected&#95;iterator: Vec&lt;i32&gt; = (0..10).collect();
-    println!(&quot;Collected (0..10) into: {:?}&quot;, collected&#95;iterator);
+    println!(&quot;Собираем (0..10) в: {:?}&quot;, collected&#95;iterator);
 
-    // The &#96;vec!&#96; macro can be used to initialize a vector
+    // Для инициализации вектора можно использовать макрос &#96;vec!&#96;
     let mut xs = vec![1i32, 2, 3];
-    println!(&quot;Initial vector: {:?}&quot;, xs);
+    println!(&quot;Начальный вектор: {:?}&quot;, xs);
 
-    // Insert new element at the end of the vector
-    println!(&quot;Push 4 into the vector&quot;);
+    // Вставляет новый элемент в конце вектора
+    println!(&quot;Добавляем 4 элементы в вектор&quot;);
     xs.push(4);
-    println!(&quot;Vector: {:?}&quot;, xs);
+    println!(&quot;Вектор: {:?}&quot;, xs);
 
-    // Error! Immutable vectors can&#39;t grow
+    // Ошибка! Неизменяемые вектора не могут увеличиваться
     collected&#95;iterator.push(0);
-    // ИСПРАВЬТЕ ^ Comment out this line
+    // ИСПРАВЬТЕ ^ Закомментируйте эту строку
 
-    // The &#96;len&#96; method yields the current size of the vector
-    println!(&quot;Vector size: {}&quot;, xs.len());
+    // Метод &#96;len&#96; возвращает текущий размер вектора
+    println!(&quot;Размер вектора: {}&quot;, xs.len());
 
-    // Indexing is done using the square brackets (indexing starts at 0)
-    println!(&quot;Second element: {}&quot;, xs[1]);
+    // Обращение к элементам вектора записывается с помощью квадратных скобок
+    // (нумерация элементов начинается с 0)
+    println!(&quot;Второй элемент: {}&quot;, xs[1]);
 
-    // &#96;pop&#96; removes the last element from the vector and returns it
-    println!(&quot;Pop last element: {:?}&quot;, xs.pop());
+    // &#96;pop&#96; удаляет последний элемент из вектора и возвращает его
+    println!(&quot;Удаляем последний элемент: {:?}&quot;, xs.pop());
 
-    // Out of bounds indexing yields a panic
-    println!(&quot;Fourth element: {}&quot;, xs[3]);
+    // Обращение к элементу за пределами вектора вызывает ошибку
+    println!(&quot;Четвёртый элемент: {}&quot;, xs[3]);
 }</pre></div>
 <div id="result"></div>
 </div>
 
-<p>More <code>Vec</code> methods can be found under the
-<a href="http://doc.rust-lang.org/std/vec/" target="_blank">std::vec</a> module</p>
+<p>Подробную информацию о методах объекта <code>Vec</code> 
+можно почитать в разделе модуля <a href="http://doc.rust-lang.org/std/vec/" target="_blank">std::vec</a></p>
 
                     
                     </section>
@@ -2925,7 +2927,7 @@ be surpassed, the vector is reallocated with a larger capacity.</p>
         </div>
 
         
-        <a href="../std/box.html" class="navigation navigation-prev " aria-label="Previous page: Box, stack and heap"><i class="fa fa-angle-left"></i></a>
+        <a href="../std/box.html" class="navigation navigation-prev " aria-label="Previous page: Упаковка, стек и куча"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../std/str.html" class="navigation navigation-next " aria-label="Next page: Strings"><i class="fa fa-angle-right"></i></a>

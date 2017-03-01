@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Implementation | Rust на примерах</title>
+        <title>Реализация | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="12.2" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="12.2" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2868,18 +2868,18 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_76">
+                    <section class="normal" id="section-gitbook_77">
                     
-                        <h2 id="122-implementation">12.2 Implementation</h2>
-<p>Similar to functions, implementations require care to remain generic.</p>
-<pre><code class="lang-rust"><span class="hljs-keyword">struct</span> S; <span class="hljs-comment">// Concrete type `S`</span>
-<span class="hljs-keyword">struct</span> GenericVal&lt;T&gt;(T,); <span class="hljs-comment">// Generic type `GenericVal`</span>
+                        <h2 id="122-">12.2 Реализация</h2>
+<p>Подобно функциям, реализации требуют выполнения некоторых условий, чтобы оставаться обобщенными.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">struct</span> S; <span class="hljs-comment">// Конкретный тип `S`</span>
+<span class="hljs-keyword">struct</span> GenericVal&lt;T&gt;(T,); <span class="hljs-comment">// Обобщенный тип `GenericVal`</span>
 
-<span class="hljs-comment">// impl of GenericVal where we explicitly specify type parameters:</span>
-<span class="hljs-keyword">impl</span> GenericVal&lt;<span class="hljs-keyword">f32</span>&gt; {} <span class="hljs-comment">// Specify `f32`</span>
-<span class="hljs-keyword">impl</span> GenericVal&lt;S&gt; {} <span class="hljs-comment">// Specify `S` as defined above</span>
+<span class="hljs-comment">// Реализация GenericVal, где мы явно указавыем типы данных параметров:</span>
+<span class="hljs-keyword">impl</span> GenericVal&lt;<span class="hljs-keyword">f32</span>&gt; {} <span class="hljs-comment">// Указываем тип `f32`</span>
+<span class="hljs-keyword">impl</span> GenericVal&lt;S&gt; {} <span class="hljs-comment">// Указываем тип `S`, который мы определили выше</span>
 
-<span class="hljs-comment">// `&lt;T&gt;` Must precede the type to remain generic</span>
+<span class="hljs-comment">// `&lt;T&gt;` Должен указываться перед типом, чтобы оставаться обобщенным</span>
 <span class="hljs-keyword">impl</span> &lt;T&gt; GenericVal&lt;T&gt; {}
 </code></pre>
 <div id="active-code">
@@ -2893,12 +2893,12 @@ struct GenVal&lt;T&gt;{
     gen&#95;val: T
 }
 
-// impl of Val
+// Реалицация Val
 impl Val {
     fn value(&amp;self) -&gt; &amp;f64 { &amp;self.val }
 }
 
-// impl of GenVal for a generic type &#96;T&#96;
+// Реалицация GenVal для обобщённого типа &#96;T&#96;
 impl &lt;T&gt; GenVal&lt;T&gt; {
     fn value(&amp;self) -&gt; &amp;T { &amp;self.gen&#95;val }
 }
@@ -2912,8 +2912,8 @@ fn main() {
 <div id="result"></div>
 </div>
 
-<h3 id="see-also">See also:</h3>
-<p><a href="/scope/lifetime/fn.html">functions returning references</a>, <a href="/fn/methods.html"><code>impl</code></a>, and <a href="/custom_types/structs.html"><code>struct</code></a></p>
+<h3 id="-">Смотрите также:</h3>
+<p><a href="../scope/lifetime/fn.html">functions returning references</a>, <a href="../fn/methods.html"><code>impl</code></a>, and <a href="../custom_types/structs.html"><code>struct</code></a></p>
 
                     
                     </section>

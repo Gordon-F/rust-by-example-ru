@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Box, stack and heap | Rust на примерах</title>
+        <title>Упаковка, стек и куча | Rust на примерах</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-level="17.1" data-basepath=".." data-revision="1488342970091">
+    <div class="book" data-level="17.1" data-basepath=".." data-revision="1488346787973">
     
 
 <div class="book-summary">
@@ -678,7 +678,7 @@
                         
                             <b>7.5.1.</b>
                         
-                         Destructuring
+                         Деструктуризация
                     </a>
                 
             
@@ -695,7 +695,7 @@
                         
                             <b>7.5.1.1.</b>
                         
-                         tuples
+                         Кортежи
                     </a>
                 
             
@@ -764,7 +764,7 @@
                         
                             <b>7.5.2.</b>
                         
-                         Guards
+                         Ограничитель шаблонов
                     </a>
                 
             
@@ -1048,7 +1048,7 @@
                         
                             <b>9.</b>
                         
-                         Modules
+                         Модули
                     </a>
                 
             
@@ -1065,7 +1065,7 @@
                         
                             <b>9.1.</b>
                         
-                         Visibility
+                         Видимость
                     </a>
                 
             
@@ -1097,7 +1097,7 @@
                         
                             <b>9.3.</b>
                         
-                         The `use` declaration
+                         Декларация `use`
                     </a>
                 
             
@@ -1129,7 +1129,7 @@
                         
                             <b>9.5.</b>
                         
-                         File hierarchy
+                         Иерархия файлов
                     </a>
                 
             
@@ -1150,7 +1150,7 @@
                         
                             <b>10.</b>
                         
-                         Crates
+                         Контейнеры
                     </a>
                 
             
@@ -1167,7 +1167,7 @@
                         
                             <b>10.1.</b>
                         
-                         Library
+                         Библиотеки
                     </a>
                 
             
@@ -1329,7 +1329,7 @@
                         
                             <b>12.2.</b>
                         
-                         Implementation
+                         Реализация
                     </a>
                 
             
@@ -2293,7 +2293,7 @@
                         
                             <b>17.1.</b>
                         
-                         Box, stack and heap
+                         Упаковка, стек и куча
                     </a>
                 
             
@@ -2309,7 +2309,7 @@
                         
                             <b>17.2.</b>
                         
-                         Vectors
+                         Вектора
                     </a>
                 
             
@@ -2470,7 +2470,7 @@
                         
                             <b>18.</b>
                         
-                         Std misc
+                         Разное в стандартной библиотеке
                     </a>
                 
             
@@ -2487,7 +2487,7 @@
                         
                             <b>18.1.</b>
                         
-                         Threads
+                         Потоки
                     </a>
                 
             
@@ -2868,15 +2868,15 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_119">
+                    <section class="normal" id="section-gitbook_131">
                     
-                        <h2 id="171-box-stack-and-heap">17.1 Box, stack and heap</h2>
-<p>All values in Rust are stack allocated by default. Values can be <em>boxed</em>
-(allocated in the heap) by creating a <code>Box&lt;T&gt;</code>. A box is a smart pointer to a
-heap allocated value of type <code>T</code>. When a box goes out of scope, its destructor
-is called, the inner object is destroyed, and the memory in the heap is freed.</p>
-<p>Boxed values can be dereferenced using the <code>*</code> operator; this removes one layer
-of indirection. </p>
+                        <h2 id="171----">17.1 Упаковка, стек и куча</h2>
+<p>По умолчанию, все значения в Rust располагаются в стеке. Значения можно <em>упаковать</em>
+(разместить в куче), создав упаковку <code>Box&lt;T&gt;</code>. Упаковка — умный указатель на значение
+типа <code>T</code> в куче. Когда упаковка оказывается за пределами области видимости, вызывается
+деструктор, содержащийся в ней объект уничтожается, а память в куче освобождается.</p>
+<p>Упакованные значения могут быть разыменованны с помощью операции <code>*</code>. 
+Эта операция убирает один уровень косвенности.</p>
 <div id="active-code">
 <button class="btn btn-primary" type="button" id="run-code">Run</button>
 <button class="btn btn-primary" type="button" id="reset-code">Reset</button>
@@ -2899,47 +2899,47 @@ fn origin() -&gt; Point {
 }
 
 fn boxed&#95;origin() -&gt; Box&lt;Point&gt; {
-    // Allocate this point in the heap, and return a pointer to it
+    // Разместить эту точку в куче и вернуть указатель на неё
     Box::new(Point { x: 0.0, y: 0.0 })
 }
 
 fn main() {
-    // (all the type annotations are superfluous)
-    // Stack allocated variables
+    // (все аннотации типа избыточны)
+    // Выделенные на стеке значения
     let point: Point = origin();
     let rectangle: Rectangle = Rectangle {
         p1: origin(),
         p2: Point { x: 3.0, y: 4.0 }
     };
 
-    // Heap allocated rectangle
+    // Выделенный в куче квадрат
     let boxed&#95;rectangle: Box&lt;Rectangle&gt; = Box::new(Rectangle {
         p1: origin(),
         p2: origin()
     });
 
-    // The output of functions can be boxed
+    // Результат функции может быть упакован
     let boxed&#95;point: Box&lt;Point&gt; = Box::new(origin());
 
-    // Double indirection
+    // Два уровня косвенной адресации
     let box&#95;in&#95;a&#95;box: Box&lt;Box&lt;Point&gt;&gt; = Box::new(boxed&#95;origin());
 
-    println!(&quot;Point occupies {} bytes in the stack&quot;,
+    println!(&quot;Point занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;point));
-    println!(&quot;Rectangle occupies {} bytes in the stack&quot;,
+    println!(&quot;Rectangle занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;rectangle));
 
-    // box size = pointer size
-    println!(&quot;Boxed point occupies {} bytes in the stack&quot;,
+    // размер упаковки = размер указателя
+    println!(&quot;Boxed point занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;boxed&#95;point));
-    println!(&quot;Boxed rectangle occupies {} bytes in the stack&quot;,
+    println!(&quot;Boxed rectangle занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;boxed&#95;rectangle));
-    println!(&quot;Boxed box occupies {} bytes in the stack&quot;,
+    println!(&quot;Boxed box занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;box&#95;in&#95;a&#95;box));
 
-    // Copy the data contained in &#96;boxed&#95;point&#96; into &#96;unboxed&#95;point&#96;
+    // Копировать данные, что находятся в &#96;boxed&#95;point&#96;, в &#96;unboxed&#95;point&#96;
     let unboxed&#95;point: Point = &#42;boxed&#95;point;
-    println!(&quot;Unboxed point occupies {} bytes in the stack&quot;,
+    println!(&quot;Unboxed point занимает {} байт в стеке&quot;,
              mem::size&#95;of&#95;val(&amp;unboxed&#95;point));
 }</pre></div>
 <div id="result"></div>
@@ -2957,7 +2957,7 @@ fn main() {
         <a href="../std.html" class="navigation navigation-prev " aria-label="Previous page: Std library types"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../std/vec.html" class="navigation navigation-next " aria-label="Next page: Vectors"><i class="fa fa-angle-right"></i></a>
+        <a href="../std/vec.html" class="navigation navigation-next " aria-label="Next page: Вектора"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
