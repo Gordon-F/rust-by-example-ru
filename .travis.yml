@@ -9,9 +9,9 @@ install:
 - curl https://nodejs.org/dist/v0.12.7/node-v0.12.7-sunos-x64.tar.gz > node.tar.gz
 - tar xf node.tar.gz
 - export PATH=$PATH:$pwd/node-v0.12.7-linux-x64/bin
+- rvm use 2.2.3 --install --binary --fuzzy
 before_script:
 - gem install html-proofer
-- export PATH=$PATH:$pwd/.gem/ruby/1.9.3/bin
 script:
 - rustc --version
 - ruby --version
