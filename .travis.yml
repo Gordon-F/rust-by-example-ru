@@ -5,9 +5,6 @@ rust:
 matrix:
   allow_failures:
   - rust: nightly
-before_install:
-- apt-get -qq update
-- 
 install:
 - curl https://nodejs.org/dist/v0.12.7/node-v0.12.7-sunos-x64.tar.gz > node.tar.gz
 - tar xf node.tar.gz
