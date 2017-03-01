@@ -20,7 +20,7 @@ script:
 - make
 - make test
 - make html
-- htmlproofer stage/_book --log-level error --only-4xx --check-html
+- htmlproofer stage/_book --log-level error --only-4xx --check-html --url-ignore "#"
 notifications:
   email:
   - shaposhnikigor95@bk.ru
