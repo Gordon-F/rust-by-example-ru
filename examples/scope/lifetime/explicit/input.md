@@ -29,11 +29,11 @@ See the following example for explicit lifetime annotation in use:
 
 [^1]: [elision][elision] implicitly annotates lifetimes and so is different.
 
-### See also:
+### Смотрите также:
 
 [generics][generics] and [closures][closures]
 
-[anonymity]: /fn/closures/anonymity.html
-[closures]: /fn/closures.html
-[elision]: /scope/lifetime/elision.html
-[generics]: /generics.html
+[anonymity]: ../../fn/closures/anonymity.html
+[closures]: ../../fn/closures.html
+[elision]: ../../scope/lifetime/elision.html
+[generics]: ../../generics.html

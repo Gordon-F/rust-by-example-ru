@@ -5,9 +5,9 @@ where it is defined, and has the goal of hiding information (encapsulation).
 
 {struct.play}
 
-### See also:
+### Смотрите также:
 
 [generics][generics] and [methods][methods]
 
-[generics]: /generics.html
-[methods]: /fn/methods.html
+[generics]: ../generics.html
+[methods]: ../fn/methods.html

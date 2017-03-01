@@ -12,11 +12,11 @@ to it while staying compact.
 
 {map.play}
 
-### See also:
+### Смотрите также:
 
 [closures][closures], [`Option`][option], [`Option::map()`][map]
 
 [combinators]: https://doc.rust-lang.org/book/glossary.html#combinators
-[closures]: /fn/closures.html
+[closures]: ../../fn/closures.html
 [option]: http://doc.rust-lang.org/std/option/enum.Option.html
 [map]: http://doc.rust-lang.org/std/option/enum.Option.html#method.map

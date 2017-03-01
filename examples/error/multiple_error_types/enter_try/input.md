@@ -19,10 +19,10 @@ to make more structured and informative errors by defining their types.
 
 [^1]: See [re-enter try!][re_enter_try] for more details.
 
-### See also:
+### Смотрите также:
 
 [`Result`][result] and [`io::Result`][io_result]
 
 [result]: http://doc.rust-lang.org/std/result/enum.Result.html
 [io_result]: http://doc.rust-lang.org/std/io/type.Result.html
-[re_enter_try]: /error/reenter_try.html
+[re_enter_try]: ../../error/reenter_try.html

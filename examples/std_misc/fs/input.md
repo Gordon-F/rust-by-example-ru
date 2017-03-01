@@ -39,8 +39,8 @@ a
 1 directory, 2 files
 ```
 
-### See also:
+### Смотрите также:
 
 [`cfg!`][cfg]
 
-[cfg]: /attribute/cfg.html
+[cfg]: ../attribute/cfg.html

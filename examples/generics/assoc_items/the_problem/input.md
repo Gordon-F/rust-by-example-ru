@@ -12,9 +12,9 @@ section, associated types provide exactly that capability.
 
 {problem.play}
 
-### See also:
+### Смотрите также:
 
 [`struct`s][structs], and [`trait`s][traits]
 
-[structs]: /custom_types/structs.html
-[traits]: /trait.html
+[structs]: ../../custom_types/structs.html
+[traits]: ../../trait.html

@@ -10,9 +10,9 @@ off some valid forms of functions with lifetimes:
 
 {fn.play}
 
-### See also:
+### Смотрите также:
 
 [functions][fn]
 
-[elision]: /scope/lifetime/elision.html
-[fn]: /fn.html
+[elision]: ../../scope/lifetime/elision.html
+[fn]: ../../fn.html

@@ -14,10 +14,10 @@ The following is a list of derivable traits:
  
 {derive.play}
 
-### See also:
+### Смотрите также:
 [`derive`][derive]
 
-[attribute]: /attribute.html
+[attribute]: ../attribute.html
 [eq]: http://doc.rust-lang.org/std/cmp/trait.Eq.html
 [partial-eq]: http://doc.rust-lang.org/std/cmp/trait.PartialEq.html
 [ord]: http://doc.rust-lang.org/std/cmp/trait.Ord.html

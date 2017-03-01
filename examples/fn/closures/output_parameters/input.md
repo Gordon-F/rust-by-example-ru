@@ -20,12 +20,12 @@ closure.
 
 {output_parameters.play}
 
-### See also:
+### Смотрите также:
 
 [Boxing][box], [`Fn`][fn], [`FnMut`][fnmut], and [Generics][generics].
 
-[box]: /std/box.html
+[box]: ../../std/box.html
 [fn]: http://doc.rust-lang.org/std/ops/trait.Fn.html
 [fnmut]: http://doc.rust-lang.org/std/ops/trait.FnMut.html
 [fnbox]: http://doc.rust-lang.org/std/boxed/trait.FnBox.html 
-[generics]: /generics.html
+[generics]: ../../generics.html

@@ -26,9 +26,9 @@ This example shows some of the syntax in action:
 
 {generics.play}
 
-### See also:
+### Смотрите также:
 
 [`struct`s][structs]
 
-[structs]: /custom_types/structs.html
+[structs]: custom_types/structs.html
 [camelcase]: https://en.wikipedia.org/wiki/CamelCase

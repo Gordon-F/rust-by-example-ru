@@ -27,10 +27,10 @@ $ ./unit_test
 If you see this, the tests were not compiled nor ran!
 ```
 
-### See also:
+### Смотрите также:
 
 [attributes][attributes], [conditional compilation][cfg], and [`mod`][mod].
 
-[attributes]: /attribute.html
-[cfg]: /attribute/cfg.html
-[mod]: /mod.html
+[attributes]: ../attribute.html
+[cfg]: ../attribute/cfg.html
+[mod]: ../mod.html

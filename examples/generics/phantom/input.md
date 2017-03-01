@@ -11,11 +11,11 @@ different data types.
 
 {phantom.play}
 
-### See also:
+### Смотрите также:
 
 [Derive], [struct], and [TupleStructs]
 
-[Derive]: /trait/derive.html
-[struct]: /custom_types/structs.html
-[TupleStructs]: /custom_types/structs.html
+[Derive]: ../trait/derive.html
+[struct]: ../custom_types/structs.html
+[TupleStructs]: ../custom_types/structs.html
 [std::marker::PhantomData]: https://doc.rust-lang.org/std/marker/struct.PhantomData.html
