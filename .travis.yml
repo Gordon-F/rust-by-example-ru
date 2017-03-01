@@ -9,13 +9,14 @@ install:
 - curl https://nodejs.org/dist/v0.12.7/node-v0.12.7-sunos-x64.tar.gz > node.tar.gz
 - tar xf node.tar.gz
 - export PATH=$PATH:$pwd/node-v0.12.7-linux-x64/bin
-- curl https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.2.1.tar.bz2 > ruby.tar.bz2
-- tar xf ruby.tar.bz2
-- export PATH=$PATH:$pwd/ruby-2.2.1/bin
+before_script:
+- gem install html-proofer
+- export PATH=$PATH:$pwd/.gem/ruby/1.9.3/bin
 script:
 - rustc --version
 - ruby --version
 - gem --version
+- htmlproofer --version
 - make
 - make test
 - make html
@@ -29,3 +30,4 @@ branches:
 env:
   global:
   - secure: cwKUZkQrKNQhA5ZVy/CCEVEvHEW0zZG8sIzADVG6zwLgtnss8Ayl3XMZyMSEQA1awXYrjhzocxDw2cJDFsKe1ftpPJPCc7xPXbiDx0eLm5MdAi+d+ouogiPRRKzaSGgcHSmPh2esGq63zkRYDDa5wsIrsv8s+W7+hL4HvqwXOpRuSqJJy9hgYKqgGITeraaz47aN+vUJV3Ve+viTe8FJu3ZSBaS5ey0gw4Ra3sbchq+GbRmSRiT/Nsl0CyvBTCg0saJUVP6bK72xJu/sqHMrydzmDSiV7blqFzA4dZWSRP3rTIu3Ttrj+aeYmiC46hiQthFllJP8mHyipXcgE7883ONLeD3GxqzRw6VpEYiEwgFTc3BESJqdcR/LmsdCsgBz3roSIZTR/c2kGTEntoUlXaixFQ4wPEaMJSc+spsBZcMpkQvKgUYeeb12hyIrOtQSwEfS3TA/XmulIhoZOpSiRc3Th9yuZtToVa7LOGwhkzdn+kD7B2LPbyVCiopFSLfhfRgehPQI95RIcf9hhGJRg7XZEFMMq0SbKQgDpeb612A/Uf6gwglVRKarX/iXCHBSXjubBbRcPlpmWMHVCT53oOT1kjQmnVgePW3uT9Xv4dntX/phYQYa+x+rAjBdyvY8cNgKV74gw8sJCrC4whZRGNHXc6P3n7FJpUcxxtWTszY=
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
