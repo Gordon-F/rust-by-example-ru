@@ -10,16 +10,17 @@ install:
 - tar xf node.tar.gz
 - export PATH=$PATH:$pwd/node-v0.12.7-linux-x64/bin
 - rvm use 2.2.3 --install --binary --fuzzy
-before_script:
 - gem install html-proofer
-script:
+before_script:
 - rustc --version
 - ruby --version
 - gem --version
 - htmlproofer --version
+script:
 - make
 - make test
 - make html
+- htmlproofer stage/_book --log-level error --only-4xx --check-html
 notifications:
   email:
   - shaposhnikigor95@bk.ru
