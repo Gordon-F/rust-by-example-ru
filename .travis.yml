@@ -5,17 +5,21 @@ rust:
 matrix:
   allow_failures:
   - rust: nightly
+addons:
+  apt:
+    packages:
+    - hunspell
 install:
-- curl https://nodejs.org/dist/v0.12.7/node-v0.12.7-sunos-x64.tar.gz > node.tar.gz
-- tar xf node.tar.gz
-- export PATH=$PATH:$pwd/node-v0.12.7-linux-x64/bin
+- nvm install 6
 - rvm use 2.2.3 --install --binary --fuzzy
 - gem install html-proofer
 before_script:
 - rustc --version
+- node --version
 - ruby --version
 - gem --version
 - htmlproofer --version
+- hunspell -vv
 script:
 - make
 - make test
