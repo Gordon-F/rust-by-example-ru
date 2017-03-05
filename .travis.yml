@@ -16,6 +16,7 @@ before_script:
 - ruby --version
 - gem --version
 - htmlproofer --version
+- hunspell -vv
 script:
 - make
 - make test
