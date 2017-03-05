@@ -13,8 +13,7 @@ install:
 - curl https://nodejs.org/dist/v0.12.7/node-v0.12.7-sunos-x64.tar.gz > node.tar.gz
 - tar xf node.tar.gz
 - export PATH=$PATH:$pwd/node-v0.12.7-linux-x64/bin
-- curl http://mirrors.kernel.org/ubuntu/pool/main/h/hunspell/hunspell_1.3.2-4_amd64.deb > hunspell.deb
-- rvm use 2.3.1
+- rvm list
 - gem install html-proofer
 before_script:
 - rustc --version
